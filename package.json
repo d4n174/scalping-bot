@@ -1,0 +1,13 @@
+{
+  "name": "scalping-bot",
+  "version": "1.0.0",
+  "main": "scalping.js",
+  "scripts": {
+    "start": "node scalping.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "mysql2": "^3.0.0",
+    "node-fetch": "^2.6.7"
+  }
+}
