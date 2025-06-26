@@ -138,11 +138,3 @@ const app = express();
 
 app.get('/', (req, res) => res.send('Scalping bot is running'));
 app.listen(3000, () => console.log('Uptime server active'));
-console.log('✅ BOT Token:', process.env.BOT_TOKEN);
-console.log('✅ Chat ID:', process.env.CHAT_ID);
-
-// Keep-alive script
-const https = require('https');
-setInterval(() => {
-  https.get('https://29fdc4eb-a320-4b9e-b1f1-37319a2e9559-00-yq55dboubkt5.sisko.replit.dev/');
-}, 280000); // ping setiap 4 menit 40 detik
