@@ -107,7 +107,7 @@ async function fetchAndAnalyze() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         chat_id: process.env.CHAT_ID,
-        text: `📊 ${formatSinyal}`
+        text: `📊 EMARSI - ${formatSinyal}`
       })
     });
 
@@ -119,3 +119,30 @@ async function fetchAndAnalyze() {
 
 setInterval(fetchAndAnalyze, 5 * 60 * 1000);
 fetchAndAnalyze();
+
+// 🔽 Tambahkan blok test ini di bawahnya (sementara aja untuk test kirim ke Telegram)
+//(async () => {
+//  await fetch(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`, {
+//    method: 'POST',
+//    headers: { 'Content-Type': 'application/json' },
+//    body: JSON.stringify({
+//      chat_id: process.env.CHAT_ID,
+//      text: '📢 Test sinyal dari scalping bot ✅'
+//    })
+//  });
+//})();
+
+// Agar Replit tidak sleep ➜ aktif terus 24 jam
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => res.send('Scalping bot is running'));
+app.listen(3000, () => console.log('Uptime server active'));
+console.log('✅ BOT Token:', process.env.BOT_TOKEN);
+console.log('✅ Chat ID:', process.env.CHAT_ID);
+
+// Keep-alive script
+const https = require('https');
+setInterval(() => {
+  https.get('https://29fdc4eb-a320-4b9e-b1f1-37319a2e9559-00-yq55dboubkt5.sisko.replit.dev/');
+}, 280000); // ping setiap 4 menit 40 detik
